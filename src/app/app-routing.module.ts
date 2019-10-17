@@ -1,26 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component'
+import { AuthGuard } from '../app/components/auth/auth.guard';
+import { StoreEnterComponent } from './components/store/store-enter/store-enter.component'
+
 const appRoutes: Routes = [
-//   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-//   { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
-//   {
-//     path: 'shopping-list',
-//     loadChildren: './shopping-list/shopping-list.module#ShoppingListModule'
-//   },
-//   {
-//     path: 'auth',
-//     loadChildren: './auth/auth.module#AuthModule'
-//   }
-{
+  { path: '', redirectTo: '/store', pathMatch: 'full' },
+  { path: 'store',  component: StoreEnterComponent, canActivate: [AuthGuard] },
+
+  {
         path: 'auth',
         component: LoginComponent
-}
+  }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })

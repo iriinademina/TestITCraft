@@ -137,7 +137,7 @@ export class AuthEffects {
         tap((authSuccessAction: AuthActions.AuthenticateSuccess) => {
             if (authSuccessAction.payload.redirect) {
                 this.zone.run(() => {
-                    this.router.navigate(['userPage']);
+                    this.router.navigate(['store']);
                 });
             }
         }),
