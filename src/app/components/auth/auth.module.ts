@@ -6,9 +6,16 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../material.module';
 import { SharedModule } from '../../shared/shared.module';
 import { LoginComponent } from './login/login.component'
-
+import { ResetPasswordComponent } from './reset-password/reset-password.component'
+import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component'
+// import { AuthRoutingModule } from './auth-routing.module'
+import { SwitchResetComponentsComponent } from './switch-reset-components/switch-reset-components.component'
 @NgModule({
-    declarations: [LoginComponent],
+    declarations: [LoginComponent,
+        ResetPasswordComponent,
+        ConfirmPasswordComponent,
+        SwitchResetComponentsComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,
@@ -17,8 +24,12 @@ import { LoginComponent } from './login/login.component'
         ReactiveFormsModule,
         SharedModule,
         AngularFireAuthModule,
-        
+        // AuthRoutingModule
     ],
-    exports: [LoginComponent],
+    exports: [LoginComponent,
+        ResetPasswordComponent,
+        ConfirmPasswordComponent,
+        SwitchResetComponentsComponent
+    ],
 })
 export class AuthModule {}

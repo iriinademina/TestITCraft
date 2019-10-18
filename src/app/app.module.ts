@@ -21,13 +21,18 @@ import { AuthModule } from './components/auth/auth.module';
 import { StoreComponent } from './components/store/store.component';
 import { StoreEnterComponent } from './components/store/store-enter/store-enter.component'
 import { CoreModule } from './core.module';
+// import { SwitchResetComponentsComponent } from './components/auth/switch-reset-components/switch-reset-components.component';
+// import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     StoreComponent,
-    StoreEnterComponent 
+    StoreEnterComponent,
+    // SwitchResetComponentsComponent,
+    // ConfirmPasswordComponent
 ],
   imports: [
     BrowserModule,

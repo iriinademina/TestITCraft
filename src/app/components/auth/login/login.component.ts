@@ -15,6 +15,7 @@ import { AlertComponent } from '../../../shared/alert/alert.component';
 import { PlaceholderDirective } from '../../../shared/placeholder/placeholder.directive';
 import * as fromApp from '../../../store/app.reducer';
 import * as AuthActions from '../store/auth.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       private componentFactoryResolver: ComponentFactoryResolver,
       private store: Store<fromApp.AppState>,
       private formBuilder: FormBuilder,
+      private router: Router
   ) {}
 
   ngOnInit() {
@@ -46,7 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         email: this.formBuilder.control(null, [
             Validators.required,
             Validators.minLength(8),
-            Validators.maxLength(15),
+            // Validators.maxLength(15),
         ]),
         password: this.formBuilder.control(null, [
             Validators.required,
@@ -84,6 +86,9 @@ export class LoginComponent implements OnInit, OnDestroy {
                   );
     }
 
+    resetPassword () : void {
+        this.router.navigate(['/email/action'])
+    }
 
   onHandleError() {
       this.store.dispatch(new AuthActions.ClearError());

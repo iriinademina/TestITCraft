@@ -9,6 +9,8 @@ export const environment = {
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=',
     signIn:
         'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=',
+    changePassword:
+        'https://identitytoolkit.googleapis.com/v1/accounts:update?key='
 },
 firebaseConfig: {
     apiKey: "AIzaSyCxrH5g8bISv6U7hAs6NNZU93Ia_2E9L9s",
