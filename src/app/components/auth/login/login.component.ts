@@ -16,6 +16,7 @@ import { PlaceholderDirective } from '../../../shared/placeholder/placeholder.di
 import * as fromApp from '../../../store/app.reducer';
 import * as AuthActions from '../store/auth.actions';
 import { Router } from '@angular/router';
+ import { CustomValidators } from '../custom-validators';
 
 @Component({
   selector: 'app-login',
@@ -46,16 +47,33 @@ export class LoginComponent implements OnInit, OnDestroy {
        
     this.authForm = this.formBuilder.group({
         email: this.formBuilder.control(null, [
-            Validators.required,
-            Validators.minLength(8),
-            // Validators.maxLength(15),
-        ]),
+                Validators.compose([
+                    Validators.email, Validators.required
+                ])
+            ]),
+    
         password: this.formBuilder.control(null, [
-            Validators.required,
-            Validators.minLength(8),
-            Validators.maxLength(15),
-        ]),
-    });
+            Validators.compose([
+                Validators.required,
+                CustomValidators.patternValidator(/\d/, {
+                  hasNumber: true
+                }),
+                CustomValidators.patternValidator(/[A-Z]/, {
+                  hasCapitalCase: true
+                }),
+                CustomValidators.patternValidator(/[a-z]/, {
+                  hasSmallCase: true
+                }),
+                CustomValidators.patternValidator(
+                  /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
+                  {
+                    hasSpecialCharacters: true
+                  }
+                ),
+                Validators.minLength(8)
+              ])
+            ]),
+        });
 
 
       this.storeSub = this.store.select('auth').subscribe(authState => {

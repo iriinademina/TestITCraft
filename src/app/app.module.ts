@@ -19,8 +19,8 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './components/auth/auth.module';
 import { StoreComponent } from './components/store/store.component';
-import { StoreEnterComponent } from './components/store/store-enter/store-enter.component'
 import { CoreModule } from './core.module';
+import { ItemComponent } from './components/store/item/item.component';
 // import { SwitchResetComponentsComponent } from './components/auth/switch-reset-components/switch-reset-components.component';
 // import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
 
@@ -30,7 +30,7 @@ import { CoreModule } from './core.module';
     AppComponent,
     HeaderComponent,
     StoreComponent,
-    StoreEnterComponent,
+    ItemComponent,
     // SwitchResetComponentsComponent,
     // ConfirmPasswordComponent
 ],
