@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     resetPassword () : void {
-        this.router.navigate(['/email/action'])
+        this.router.navigate(['reset-password'])
     }
 
   onHandleError() {

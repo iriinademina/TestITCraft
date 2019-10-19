@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription, Observable, Subject, of } from 'rxjs';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../store/app.reducer';
+import * as AuthActions from '../auth/store/auth.actions';
+import {
+  map
+} from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +14,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor( private store: Store<fromApp.AppState>,) { }
    
-  title = "Co reg"
+  title = "Authorization"
+  isAuthenticated = false;
+  private userSub: Subscription;
+
   ngOnInit() {
+    this.userSub = this.store
+    .select('auth')
+    .pipe(map(authState => authState.user))
+    .subscribe(user => {
+        this.isAuthenticated = !!user;
+    });
+
+  }
+
+  onLogout() {
+    this.store.dispatch(new AuthActions.Logout());
   }
 
 }

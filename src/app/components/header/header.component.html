@@ -1,7 +1,19 @@
-   <router-outlet>
-      <a [routerLink]="['/auth']">{{ title}}</a>
-   </router-outlet>
-     
+<mat-toolbar color="pink" class="header">
+      <div class="header__heading">
+          <h1 class="header__auth"><a [routerLink]="['/auth']">{{ title}}</a></h1>
+      </div>
+               <div class="header__logout">
+                  <button  
+                     mat-raised-button
+                     (click)="onLogout()">
+                        <mat-icon>exit_to_app</mat-icon> Log Out
+               </button>
+         </div>
+  </mat-toolbar>
+  
+
+
+
    
 
 

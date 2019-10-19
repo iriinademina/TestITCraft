@@ -31,14 +31,14 @@ const appRoutes: Routes = [
         //  },
           {
             path: 'reset-password',
-            component: ResetPasswordComponent,
+            component: ConfirmPasswordComponent,
             // data: { title: 'Forgot Password' }
           },
         // ]
       // },
       {
         path: 'email/action',
-        component: ConfirmPasswordComponent,
+        component:  ResetPasswordComponent,
         // data: { title: 'Confirm Email Address' }
       }
   //   ]

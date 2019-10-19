@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+
+import * as fromApp from './store/app.reducer';
+import * as AuthActions from '../app/components/auth/store/auth.actions';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'task-itcraft';
+  private subscription: Subscription;
+
+  constructor(private store: Store<fromApp.AppState>) {}
+
+  ngOnInit(): void {
+      this.store.dispatch(new AuthActions.AutoLogin());
+  }
+
+  ngOnDestroy(): void {
+      this.subscription.unsubscribe();
+  }
+ 
 }

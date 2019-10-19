@@ -43,7 +43,10 @@ export class ResetPasswordComponent implements OnInit {
     const code = this.route.snapshot.queryParams['oobCode'];
     this.afAuth.auth
         .confirmPasswordReset(code, password)
-      .then(() => this.router.navigate(['login']))
+      .then(() =>  {
+        this.router.navigate(['auth'])
+        console.log("Sucsess reset")
+      })
       .catch(err => {
         // const errorMessage = FirebaseErrors.Parse(err.code); // check this helper class at the bottom
       });
