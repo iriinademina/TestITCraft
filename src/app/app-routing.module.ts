@@ -5,10 +5,11 @@ import { AuthGuard } from '../app/components/auth/auth.guard';
 import { ItemComponent } from './components/store/item/item.component'
 import { ResetPasswordComponent} from './components/auth/reset-password/reset-password.component'
 import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component'
+import { StoreComponent } from '../../src/app/components/store/store.component'
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: '/store', pathMatch: 'full' },
-  { path: 'store',  component: ItemComponent, canActivate: [AuthGuard] },
+  { path: 'store',  component: StoreComponent, canActivate: [AuthGuard] },
   // { path: '', redirectTo: '/auth', pathMatch: 'full' },
   // { path: 'auth', loadChildren: './components/auth/auth.module#AuthModule' },
   // {

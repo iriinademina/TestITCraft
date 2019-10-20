@@ -1,18 +1,25 @@
 <mat-card class="card__item">
         <mat-card-title>
-            Карбонара
+            {{productName}}
         </mat-card-title>
         <div class="card__content">
             <mat-card-content>
-                <p>140 грн</p>
+                <p>{{ price }}<span>грн</span></p>
             </mat-card-content>
         </div>
+        <input matInput
+            type="number"
+            min=0
+            (change) = "getCount($event)"
+            >
         <mat-card-actions>
                 <button
                 mat-raised-button 
                 matInput type="submit"
+                (click) = "setItemData(this)"
             >
-             Add cart
+             Add to cart
              </button>
         </mat-card-actions>
 </mat-card>
+  <!-- (input)="validity.valid||(value='')" -->
