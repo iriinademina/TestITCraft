@@ -6,6 +6,8 @@ import { ItemComponent } from './components/store/item/item.component'
 import { ResetPasswordComponent} from './components/auth/reset-password/reset-password.component'
 import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component'
 import { StoreComponent } from '../../src/app/components/store/store.component'
+import { CartComponent } from '../../src/app/components/cart/cart.component'
+
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: '/store', pathMatch: 'full' },
@@ -40,6 +42,11 @@ const appRoutes: Routes = [
       {
         path: 'email/action',
         component:  ResetPasswordComponent,
+        // data: { title: 'Confirm Email Address' }
+      },
+      {
+        path: 'cart',
+        component:  CartComponent
         // data: { title: 'Confirm Email Address' }
       }
   //   ]

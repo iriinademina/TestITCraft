@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { BehaviorSubject, Observable, from } from 'rxjs';
 import { Item } from '../models/Item/item.model'
+import { forkJoin } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -29,4 +30,11 @@ export class DataService {
         });
     }
     
+    public renderCartData () : Observable<any> {
+        const joinObservable = forkJoin (
+            this.db.collection('Cart').get(),
+            this.db.collection('Items').get()
+        )
+        return joinObservable
+    }
 }

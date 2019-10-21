@@ -1,0 +1,35 @@
+<div>
+<mat-card class="card__item">
+        <mat-card-title>
+            Your 
+            goods
+        </mat-card-title>
+        <div class="item__content">
+            <mat-card-content>
+                    <mat-list *ngFor="let content of cartData">
+                    <p>{{ content.title }} </p> 
+                    <p>{{content.count}}</p>
+                    <p> {{ content.price }}$</p>
+                    <button
+                        color="white"
+                        mat-mini-fab
+                        matRipple="disabled"
+                        matTooltipPosition="right"
+                        class="add_circle_outline"
+                        >
+                           <mat-icon>delete</mat-icon>
+                    </button>
+                   </mat-list>
+                   <p class="item__price">Total price: <span> {{ totalPrice }}$</span></p>
+            </mat-card-content>
+        </div>
+        <mat-card-actions>
+            <button class="card__alldelete"
+                mat-raised-button 
+                matInput type="submit"
+            >
+             Clear cart
+             </button>
+        </mat-card-actions>
+</mat-card>
+</div>

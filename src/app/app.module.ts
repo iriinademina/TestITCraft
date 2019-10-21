@@ -21,7 +21,7 @@ import { AuthModule } from './components/auth/auth.module';
 import { StoreComponent } from './components/store/store.component';
 import { CoreModule } from './core.module';
 import { ItemComponent } from './components/store/item/item.component';
-// import { SwitchResetComponentsComponent } from './components/auth/switch-reset-components/switch-reset-components.component';
+import { CartComponent } from './components/cart/cart.component';
 // import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
 
 
@@ -31,6 +31,8 @@ import { ItemComponent } from './components/store/item/item.component';
     HeaderComponent,
     StoreComponent,
     ItemComponent,
+    CartComponent
+
     // SwitchResetComponentsComponent,
     // ConfirmPasswordComponent
 ],

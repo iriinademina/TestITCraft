@@ -1,0 +1,22 @@
+mat-card-title {
+    text-align: center;
+}
+
+mat-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    min-width: 25%;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.item__price {
+    font-size: 1.5em;
+    text-align: center;
+}
