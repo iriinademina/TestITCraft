@@ -16,7 +16,9 @@ mat-card-actions {
     justify-content: center;
 }
 
-.item__price {
+.item__price,
+.item__is__empty {
     font-size: 1.5em;
     text-align: center;
+    padding-bottom: 15px;
 }

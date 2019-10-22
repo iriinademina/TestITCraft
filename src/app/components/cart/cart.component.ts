@@ -7,6 +7,7 @@ import {
   map
 } from 'rxjs/operators';
 import { DataService } from '../../services/getdata-service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,8 @@ import { DataService } from '../../services/getdata-service'
 })
 export class CartComponent implements OnInit {
 
-  constructor( private dataService: DataService ) { }
+  constructor( private dataService: DataService,
+    private router: Router ) { }
 
   cartData : Array<Object> = []
   title : string;
@@ -55,5 +57,16 @@ export class CartComponent implements OnInit {
        this.totalPrice += item["price"]
       )
   }
-  
+
+  public deleteDataItem () : void {
+    this.dataService.deleteItemCart (this.itemId)
+       .then ( res => {
+          this.cartData = []
+          this.renderDataCart()}
+      )
+    }
+
+  public goStore () : void {
+    this.router.navigate (["/store"])
+  }
 }

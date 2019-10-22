@@ -8,13 +8,12 @@ import { SharedModule } from '../../shared/shared.module';
 import { LoginComponent } from './login/login.component'
 import { ResetPasswordComponent } from './reset-password/reset-password.component'
 import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component'
-// import { AuthRoutingModule } from './auth-routing.module'
-import { SwitchResetComponentsComponent } from './switch-reset-components/switch-reset-components.component'
+
+
 @NgModule({
     declarations: [LoginComponent,
         ResetPasswordComponent,
-        ConfirmPasswordComponent,
-        SwitchResetComponentsComponent
+        ConfirmPasswordComponent
     ],
     imports: [
         CommonModule,
@@ -23,13 +22,11 @@ import { SwitchResetComponentsComponent } from './switch-reset-components/switch
         MaterialModule,
         ReactiveFormsModule,
         SharedModule,
-        AngularFireAuthModule,
-        // AuthRoutingModule
+        AngularFireAuthModule
     ],
     exports: [LoginComponent,
         ResetPasswordComponent,
-        ConfirmPasswordComponent,
-        SwitchResetComponentsComponent
+        ConfirmPasswordComponent
     ],
 })
 export class AuthModule {}

@@ -37,4 +37,11 @@ export class DataService {
         )
         return joinObservable
     }
+
+    public deleteItemCart ( itemId : string) : Promise<any> {
+        return this.db
+            .collection('Cart')
+            .doc(itemId)
+            .delete();
+    }
 }

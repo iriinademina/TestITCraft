@@ -7,7 +7,7 @@ import {
   map
 } from 'rxjs/operators';
 import { DataService } from '../../../services/getdata-service'
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -28,12 +28,14 @@ export class ItemComponent implements OnInit {
 
   constructor( 
     private store: Store<fromApp.AppState>,
-    private dataService : DataService
+    private dataService : DataService,
+    private router: Router
     ) { }
 
   ngOnInit() {}
 
   setItemData (elem : Object) : void {
+    if (!this.flag) {
     this.userSub = this.store
     .select('auth')
     .pipe(map(authState => authState.user))
@@ -41,7 +43,12 @@ export class ItemComponent implements OnInit {
       this.dataService.setItemData (this.id,user.id, this.count)
         console.log(user.id)
     });
+    this.flag = true
+  } else {
+    !this.flag
+      this.router.navigate(['cart'])
     console.log(this.id)
+   }
   }
 
   getCount (event){

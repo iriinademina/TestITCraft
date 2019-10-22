@@ -10,47 +10,26 @@ import { CartComponent } from '../../src/app/components/cart/cart.component'
 
 
 const appRoutes: Routes = [
-  // { path: '', redirectTo: '/store', pathMatch: 'full' },
   { path: 'store',  component: StoreComponent, canActivate: [AuthGuard] },
-  // { path: '', redirectTo: '/auth', pathMatch: 'full' },
-  // { path: 'auth', loadChildren: './components/auth/auth.module#AuthModule' },
-  // {
-  //   path: 'reset-password',
-  //   component: ConfirmPasswordComponent
-  // },
-
   {
-        path: 'auth',
-        component: LoginComponent
+    path: 'auth',
+    component: LoginComponent
   },
 
-  // {
-  //   path: 'auth',
-  //   children: [
-  //     {
-  //       children: [
-        //  { path: 'login',
-        //  component: LoginComponent
-        //  },
-          {
-            path: 'reset-password',
-            component: ConfirmPasswordComponent,
-            // data: { title: 'Forgot Password' }
-          },
-        // ]
-      // },
-      {
-        path: 'email/action',
-        component:  ResetPasswordComponent,
-        // data: { title: 'Confirm Email Address' }
-      },
-      {
-        path: 'cart',
-        component:  CartComponent
-        // data: { title: 'Confirm Email Address' }
-      }
-  //   ]
-  // }
+  {
+    path: 'reset-password',
+    component: ConfirmPasswordComponent,
+            
+  },
+  {
+    path: 'email/action',
+    component:  ResetPasswordComponent,
+      
+  },
+  {
+    path: 'cart',
+    component:  CartComponent, canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

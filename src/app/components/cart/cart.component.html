@@ -16,20 +16,29 @@
                         matRipple="disabled"
                         matTooltipPosition="right"
                         class="add_circle_outline"
+                        (click) = "deleteDataItem()"
                         >
                            <mat-icon>delete</mat-icon>
                     </button>
                    </mat-list>
                    <p class="item__price">Total price: <span> {{ totalPrice }}$</span></p>
+                   <p class="item__is__empty" *ngIf="!cartData.length">Nothing here yet</p>
             </mat-card-content>
         </div>
         <mat-card-actions>
-            <button class="card__alldelete"
+            <button class="card__alldelete" *ngIf="cartData.length"
                 mat-raised-button 
                 matInput type="submit"
             >
              Clear cart
              </button>
+             <button class="card__alldelete" *ngIf="!cartData.length"
+             mat-raised-button 
+             matInput type="submit"
+             (click) = "goStore()"
+            >
+            Go store
+          </button>
         </mat-card-actions>
 </mat-card>
 </div>

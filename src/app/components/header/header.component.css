@@ -1,3 +1,17 @@
 mat-toolbar {
     justify-content: space-between;
 }
+
+.header__enter {
+    display: flex;
+}
+
+mat-icon {
+    outline: none;
+    margin-left: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}

@@ -9,17 +9,19 @@
         </div>
         <input matInput
             type="number"
-            min=0
+            color="white"
+            min=1
             (change) = "getCount($event)"
             >
         <mat-card-actions>
                 <button
                 mat-raised-button 
                 matInput type="submit"
+                [disabled]="!this.count"
                 (click) = "setItemData(this)"
             >
-             Add to cart
+             {{ !flag ? 'Add to cart' : 'In cart' }}
              </button>
         </mat-card-actions>
 </mat-card>
-  <!-- (input)="validity.valid||(value='')" -->
+  
