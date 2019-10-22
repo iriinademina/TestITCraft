@@ -1,27 +1,28 @@
 <mat-card class="card__item">
-        <mat-card-title>
-            {{productName}}
-        </mat-card-title>
-        <div class="card__content">
-            <mat-card-content>
-                <p>{{ price }}<span>$</span></p>
-            </mat-card-content>
-        </div>
-        <input matInput
-            type="number"
-            color="white"
-            min=1
-            (change) = "getCount($event)"
-            >
-        <mat-card-actions>
-                <button
-                mat-raised-button 
-                matInput type="submit"
-                [disabled]="!this.count"
-                (click) = "setItemData(this)"
-            >
-             {{ !flag ? 'Add to cart' : 'In cart' }}
-             </button>
-        </mat-card-actions>
+  <mat-card-title>
+    {{ productName }}
+  </mat-card-title>
+  <div class="card__content">
+    <mat-card-content>
+      <p>{{ price }}<span>$</span></p>
+    </mat-card-content>
+  </div>
+  <input
+    matInput
+    type="number"
+    color="white"
+    min="1"
+    (change)="getCount($event)"
+  />
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      matInput
+      type="submit"
+      [disabled]="!this.count"
+      (click)="setItemData(this)"
+    >
+      {{ !flag ? "Add to cart" : "In cart" }}
+    </button>
+  </mat-card-actions>
 </mat-card>
-  

@@ -1,20 +1,11 @@
 <mat-toolbar color="pink" class="header">
-      <div class="header__enter">
-           <a [routerLink]="['/auth']"> <mat-icon>account_circle</mat-icon> </a>
-          <mat-icon [routerLink]="['/cart']">add_shopping_cart</mat-icon>
-      </div>
-            <div class="header__logout">
-               <button  
-                  mat-raised-button
-                  (click)="onLogout()">
-                  <mat-icon>exit_to_app</mat-icon> Log Out
-               </button>
-         </div>
-  </mat-toolbar>
-  
-
-
-
-   
-
-
+  <div class="header__enter">
+    <a [routerLink]="['/auth']"> <mat-icon>account_circle</mat-icon> </a>
+    <mat-icon [routerLink]="['/cart']">add_shopping_cart</mat-icon>
+  </div>
+  <div class="header__logout">
+    <button mat-raised-button (click)="onLogout()">
+      <mat-icon>exit_to_app</mat-icon> Log Out
+    </button>
+  </div>
+</mat-toolbar>

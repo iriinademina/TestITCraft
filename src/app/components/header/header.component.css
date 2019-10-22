@@ -1,17 +1,17 @@
 mat-toolbar {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .header__enter {
-    display: flex;
+  display: flex;
 }
 
 mat-icon {
-    outline: none;
-    margin-left: 15px;
+  outline: none;
+  margin-left: 15px;
 }
 
 a {
-    text-decoration: none;
-    color: #ffffff;
+  text-decoration: none;
+  color: #ffffff;
 }

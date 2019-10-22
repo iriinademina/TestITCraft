@@ -1,11 +1,11 @@
 <div class="container__item">
-<ng-container *ngFor="let content of itemData">
-            <div class="item">
-                <app-item
-                    [productName]="content.productName"
-                    [price]="content.price"
-                    [id]="content.id"
-                ></app-item>
-            </div>
-</ng-container>
+  <ng-container *ngFor="let content of itemData">
+    <div class="item">
+      <app-item
+        [productName]="content.productName"
+        [price]="content.price"
+        [id]="content.id"
+      ></app-item>
+    </div>
+  </ng-container>
 </div>

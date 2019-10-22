@@ -1,39 +1,36 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription, Observable, Subject, of } from 'rxjs';
-import { Store } from '@ngrx/store';
-import * as fromApp from '../../store/app.reducer';
-import * as AuthActions from '../auth/store/auth.actions';
-import {
-  map
-} from 'rxjs/operators';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Subscription, Observable, Subject, of } from "rxjs";
+import { Store } from "@ngrx/store";
+import * as fromApp from "../../store/app.reducer";
+import * as AuthActions from "../auth/store/auth.actions";
+import { map } from "rxjs/operators";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+  constructor(private store: Store<fromApp.AppState>) {}
 
-  constructor( private store: Store<fromApp.AppState>,) { }
-   
-  title = "Authorization"
+  title = "Authorization";
   isAuthenticated = false;
   private userSub: Subscription;
 
   ngOnInit() {
     this.userSub = this.store
-    .select('auth')
-    .pipe(map(authState => authState.user))
-    .subscribe(user => {
+      .select("auth")
+      .pipe(map(authState => authState.user))
+      .subscribe(user => {
         this.isAuthenticated = !!user;
-    });
-
+      });
   }
 
   onLogout() {
     this.store.dispatch(new AuthActions.Logout());
   }
 
-  
-
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
+  }
 }

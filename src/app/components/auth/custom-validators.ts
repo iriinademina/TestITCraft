@@ -1,4 +1,4 @@
-import { ValidationErrors, ValidatorFn, AbstractControl } from '@angular/forms';
+import { ValidationErrors, ValidatorFn, AbstractControl } from "@angular/forms";
 
 export class CustomValidators {
   static patternValidator(regex: RegExp, error: ValidationErrors): ValidatorFn {
@@ -12,10 +12,10 @@ export class CustomValidators {
   }
 
   static passwordMatchValidator(control: AbstractControl) {
-    const password: string = control.get('password').value; 
-    const confirmPassword: string = control.get('confirmPassword').value; 
+    const password: string = control.get("password").value;
+    const confirmPassword: string = control.get("confirmPassword").value;
     if (password !== confirmPassword) {
-       control.get('confirmPassword').setErrors({ NoPassswordMatch: true });
+      control.get("confirmPassword").setErrors({ NoPassswordMatch: true });
     }
   }
 }

@@ -1,11 +1,11 @@
 .card__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 95%;
-    min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 95%;
+  min-width: 250px;
 }
 
 .card-content {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }

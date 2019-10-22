@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import { AngularFireAuth } from "angularfire2/auth";
+import * as firebase from "firebase/app";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-confirm-password',
-  templateUrl: './confirm-password.component.html',
-  styleUrls: ['./confirm-password.component.css']
+  selector: "app-confirm-password",
+  templateUrl: "./confirm-password.component.html",
+  styleUrls: ["./confirm-password.component.css"]
 })
 export class ConfirmPasswordComponent implements OnInit {
-  
-  public frmPasswordReset : FormGroup;
-  
+  public frmPasswordReset: FormGroup;
+
   constructor(
     private afAuth: AngularFireAuth,
     private fb: FormBuilder,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.frmPasswordReset = this.fb.group({
@@ -25,15 +24,14 @@ export class ConfirmPasswordComponent implements OnInit {
   }
 
   sendPasswordResetRequest() {
-    const email = this.frmPasswordReset.controls['email'].value;
+    const email = this.frmPasswordReset.controls["email"].value;
     this.afAuth.auth.sendPasswordResetEmail(email).then(
       () => {
-        console.log(' Email succsess')
+        console.log(" Email succsess");
       },
       err => {
-        console.log("Error")
-      })
+        console.log("Error");
+      }
+    );
   }
-
-
 }

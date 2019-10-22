@@ -3,7 +3,3 @@ export interface Item {
     price: number;
     id: string;
 }
-
-interface ItemContent {
-    item: Item;
-}
